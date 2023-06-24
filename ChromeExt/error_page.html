@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blocking</title>
+  <link rel="icon" href="/icons/browser.png">
+  <style>
+    body {
+      font-size: 14px; /*размер шрифта для всего фрейма*/
+      text-align: center; /*все элементы по центру*/
+	  background-color: #e9e9eb; /*цвет фона*/
+	  color: #FF0000; /*цвет текста*/
+	  background-image: url('/icons/dugs.gif');
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+      background-position: center center;
+    }
+	#backButton {
+      display: block; /*свойство блочного элемента, чтобы можно было задавать отступы*/
+      margin: 0 auto; /*установить кнопку по центру по горизонтали */
+      font-size: 1.2em; /*размер шрифта для кнопки*/
+      padding: 10px 20px; /*отступы для кнопки*/
+	  border-radius: 20px; /*радиус скругления углов*/
+	  border: 2px solid #E60000; /*устанавливается толщина и цвет контура*/
+	  background-color: #ff4500; /*цвет кнопки*/
+	  padding: 10px 80px; /*растянуть кнопку*/
+	  color: #FFFFFF; /*цвет текста на кнопке*/
+    }
+	#backButton:active {
+	  background-color: #E60000; /*цвет кнопки при нажатии*/
+      border-color: #E60000; /*цвет контура при нажатии*/
+	}
+  </style>
+</head>
+<body>
+  <h1>Эта страница выглядит подозрительной!</h1>
+  <h2>Мы не можем открыть её в целях вашей же безопасности.</h2>
+  <h2>Если Вы уверены, что данная страница безопасна, нажмите на кнопку ниже для возврата.</h2>
+  <button id="backButton">Back</button>
+  <script src="back.js"></script>
+</body>
+</html>

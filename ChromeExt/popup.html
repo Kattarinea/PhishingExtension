@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Scanning Extension</title>
+  <style>
+    body {
+      font-size: 14px; /*размер шрифта для всего фрейма*/
+      text-align: center; /*все элементы по центру*/
+	  background-color: #ffdab9; /*цвет фона*/
+	  color: #A52A2A; /*цвет текста*/
+	  width: 250px; /*ширина фрейма*/
+      height: 350px; /*высота фрейма*/
+	  border: 3px solid rgb(255, 160, 122); /*толщина и цвет контура*/
+    }
+
+    #scanButton {
+      display: block; /*свойство блочного элемента, чтобы можно было задавать отступы*/
+      margin: 0 auto; /*установить кнопку по центру по горизонтали */
+      font-size: 1.2em; /*размер шрифта для кнопки*/
+      padding: 10px 20px; /*отступы для кнопки*/
+	  border-radius: 20px; /*радиус скругления углов*/
+	  border: 2px solid #E60000; /*устанавливается толщина и цвет контура*/
+	  background-color: #ff4500; /*цвет кнопки*/
+	  padding: 10px 80px; /*растянуть кнопку*/
+	  color: #FFFFFF; /*цвет текста на кнопке*/
+    }
+	
+	#scanButton:active {
+	  background-color: #E60000; /*цвет кнопки при нажатии*/
+      border-color: #E60000; /*цвет контура при нажатии*/
+	}
+
+    #img {
+      display: block; /*свойство блочного элемента, чтобы можно было задавать отступы*/
+      margin: 20px auto 0; /*картинку по центру + отступ сверху*/
+      max-width: 100%; /* максимальный размер картинки, чтобы она не выходила за пределы фрейма*/
+	  margin-top: 37px; /*отступ от верхнего элемента*/
+    }
+	
+	.switch {
+	  position: relative;
+	  display: inline-block;
+	  width: 40px;
+	  height: 23px;
+	}
+
+	.switch input { /**/
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+
+	.slider { /*вид самого переключателя*/
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: #ccc;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	  border-radius: 20px;
+	}
+
+	.slider:before { /*вид белого кружка*/
+	  position: absolute;
+	  content: "";
+	  height: 16px;
+	  width: 16px;
+	  left: 4px;
+	  bottom: 3px;
+	  background-color: white;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	  border-radius: 50%;
+	}
+
+	input:checked + .slider { /*вид переключателя во вкл режиме*/
+	  background-color: #ff4500;
+	}
+
+	input:focus + .slider { /*вид переключателя в фокусе*/
+	  box-shadow: 0 0 1px #ff4500;
+	}
+
+	input:checked + .slider:before { 
+	  -webkit-transform: translateX(16px);
+	  -ms-transform: translateX(16px);
+	  transform: translateX(16px);
+	}
+
+	.slider.round { /*вид закругленного переключателя*/
+	  border-radius: 25px;
+	}
+
+	.slider.round:before { /*вид белого кружка внутри переключателя*/
+	  border-radius: 50%;
+	}
+	
+	.switch-container { /*вид обертки переключателя*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	}
+
+	.switch-text { /*вид текста, который рядом с переключателем*/
+	font-size: 16px;
+	margin-right: 7px;
+	color: #E60000;
+	}
+		
+  </style>
+</head>
+<body>
+  <h1>Phishing Scanner</h1>
+  <button id="scanButton">Analyze</button>
+  <div class="switch-container">
+  <span class="switch-text">Auto</span>
+    <label class="switch">
+      <input type="checkbox" id="switchBtn">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <img id="img" src="/icons/Scan128.png" alt="">
+  <script src="popup.js"></script>
+</body>
+</html>
